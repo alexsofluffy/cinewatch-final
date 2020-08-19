@@ -1,0 +1,51 @@
+<script src="/js/moment.min.js"></script>
+<script src="/js/actors.js"></script>
+<div class="d-flex flex-row justify-content-around align-items-start mt-5">
+    <div>
+        <form id="formNew" method="post" action="/actors" class="d-flex flex-column align-items-center">
+            <h1 class="form-legend">Add new actor</h1>
+            <div class="form-group">
+                <label for="textNew0">First Name</label>
+                <input type="text" class="form-control" id="textNew0" name="firstName" placeholder="Kate" />
+            </div>
+            <div class="form-group">
+                <label for="textNew1">Last Name</label>
+                <input type="text" class="form-control" id="textNew1" name="lastName" placeholder="Winslet" />
+            </div>
+            <div class="form-group">
+                <label for="textNew2">Date of Birth</label>
+                <input type="date" class="form-control" id="textNew2" name="dob" data-toggle="tooltip" title="DOB" />
+            </div>
+            <button type="submit" class="btn btn-primary mx-2">Save</button>
+        </form>
+    </div>
+    <div>
+        <input type="text" id="searchActors" class="mb-2" placeholder="Search">
+        <table id="actorTable" class="table table-light table-striped">
+            <thead class="thead-dark">
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Age</th>
+                <th>&nbsp;</th>
+            </tr>
+            </thead>
+            {{#each actors}}
+                <tr id="row{{actorID}}">
+                    <form id="form{{actorID}}" method="post" action="/actor/{{actorID}}">
+                        <td>{{firstName}}</td>
+                        <td>{{lastName}}</td>
+                        <td>{{getAge dob}}</td>
+                        <td>
+                            <div class="d-flex flex-row-reverse">
+                                <button type="button" class="btn btn-secondary" onclick="deleteActor({{actorID}})">Delete</button>
+                                <button type="button" class="btn btn-primary mx-2" onclick="updateActor({{actorID}})">Update</button>
+                                <input id="dobHidden{{actorID}}" name="dobHidden" type="hidden" value="{{moment dob "YYYY-MM-DD"}}"/>
+                            </div>
+                        </td>
+                    </form>
+                </tr>
+            {{/each}}
+        </table>
+    </div>
+</div>

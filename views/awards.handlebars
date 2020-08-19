@@ -1,0 +1,69 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <form id="addAwardForm">
+                <h1 class="form-legend">Add new award</h1>
+                <div class="form-group">
+                    <label>Company</label>
+                    <input type="text" class="form-control" id="awardCompany" placeholder="Academy Award" required>
+                </div>
+                <div class="form-group">
+                    <label>Category</label>
+                    <input type="text" class="form-control" id="awardCategory" placeholder="Best Actress" required>
+                </div>
+                <div class="form-group">
+                    <label>Year Awarded</label>
+                    <input type="number" class="form-control" id="yearAwarded" placeholder="2011" min="1000" max="9999" required>
+                </div>
+                <div class="form-group">
+                    <label>Movie</label>
+                    <select class="form-control" id="movieForAward">
+                        <option value="no-movie" selected>Select Movie (optional)</option>
+                    {{#data2}}
+                    {{#if movieID}}
+                        <option value="{{movieID}}" data-name="{{name}}">{{name}} ({{releaseDate}})</option>
+                    {{/if}}
+                    {{/data2}}
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary form-submit" id="awardSubmit">Submit</button>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h1 class="table-legend">Awards</h1>
+            <input type="text" id="searchAwards" class="form-control" placeholder="Search">
+            <br>
+            <table class="table table-light table-striped" id="awardTable">
+                <thead class="thead-dark">
+                <tr>
+                    <th>Company</th>
+                    <th>Category</th>
+                    <th>Year Awarded</th>
+                    <th>Movie</th>
+                    <th>&nbsp;</th>
+                </tr>
+                </thead>
+                <tbody id="awardTableBody">
+                {{#data}}
+                    <tr id="row{{awardID}}">
+                        <td>{{company}}</td>
+                        <td>{{category}}</td>
+                        <td>{{yearAwarded}}</td>
+                        <td>{{name}}</td>
+                        <td style="display:none;">{{movieID}}</td>
+                        <td>
+                            <div class="d-flex flex-row-reverse">
+                                <button class="btn btn-secondary" onclick="deleteAward({{awardID}})">Delete</button>
+                                <button class="btn btn-primary mx-2" onclick="updateAward({{awardID}})">Update</button>
+                            </div>
+                        </td>
+                    </tr>
+                {{/data}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="/js/awards.js"></script>

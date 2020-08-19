@@ -1,0 +1,110 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xl-6">
+            <form id="addMovieForm">
+                <h1 class="form-legend">Add new movie</h1>
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control" id="movieName" placeholder="Titanic" required>
+                </div>
+                <div class="form-group">
+                    <label>Release Date</label>
+                    <input type="date" class="form-control" id="movieDate" required>
+                </div>
+                <div class="form-group">
+                    <label>Average Critic Rating</label>
+                    <input type="text" class="form-control" id="movieRating" placeholder="89%" required>
+                </div>
+                <div class="form-group">
+                    <label>Synopsis</label>
+                    <textarea type="text" class="form-control" id="movieSynopsis" rows="5" placeholder="An epic, action-packed romance..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary form-submit" id="movieSubmit">Submit</button>
+            </form>
+        </div>
+        <div class="col-xl-6">
+            <form id="searchMovieForm">
+                <h1 class="form-legend">Search movie</h1>
+                <div class="form-group">
+                    <label>By Movie Name</label>
+                    <input type="text" class="form-control" id="searchMovieName" placeholder="Fight Club">
+                </div>
+                <div class="form-group">
+                    <label>By Genre</label>
+                    <input type="text" class="form-control" id="searchMovieGenre" placeholder="SciFi">
+                </div>
+                <div class="form-group">
+                    <label>By Actor Name (First)</label>
+                    <input type="text" class="form-control" id="searchMovieActorFirst" placeholder="Kate">
+                </div>
+                <div class="form-group">
+                    <label>By Actor Name (Last)</label>
+                    <input type="text" class="form-control" id="searchMovieActorLast" placeholder="Winslet">
+                </div>
+                <div class="form-group">
+                    <label>By Award Company</label>
+                    <input type="text" class="form-control" id="searchMovieAwardCompany" placeholder="Academy Award">
+                </div>
+                <div class="form-group">
+                    <label>By Award Category</label>
+                    <input type="text" class="form-control" id="searchMovieAwardCategory" placeholder="Best Picture">
+                </div>
+                <button type="submit" class="btn btn-primary form-submit" id="searchMovieSubmit">Search</button>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h1 class="table-legend">Movies</h1>
+            <table class="table table-light table-striped" id="movieTable">
+                <thead class="thead-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Release Date</th>
+                    <th>Average Critic Rating</th>
+                    <th>Synopsis</th>
+                    <th>&nbsp;</th>
+                </tr>
+                </thead>
+                <tbody id="movieTableBody">
+                {{#each movies}}
+                    <tr id="row{{movieID}}">
+                        <td>{{name}}</td>
+                        <td>{{releaseDate}}</td>
+                        <td>{{averageCriticRating}}</td>
+                        <td>
+                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#synopsis{{movieID}}">View</button>
+
+                            <div class="modal fade" id="synopsis{{movieID}}" tabindex="-1" role="dialog" aria-labelledby="synopsisTitle{{movieID}}" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title" id="synopsisTitle{{movieID}}">{{name}}</h1>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>{{synopsis}}</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex flex-row-reverse">
+                                <button class="btn btn-secondary" onclick="deleteMovie({{movieID}})">Delete</button>
+                                <button class="btn btn-primary mx-2" onclick="updateMovie({{movieID}})">Update</button>
+                            </div>
+                        </td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src='/js/movies.js'></script>

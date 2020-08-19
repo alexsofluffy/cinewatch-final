@@ -1,11 +1,17 @@
-# cine-watch
-A web application that provides an easy way to keep track of movies that the user wants to watch. After registering a new account, users can search both released and upcoming movies, browse information on movies they are interested in, add movies to their personal dashboard, sort their movie list by release date, genre, actor and more, update the order that a movie appears on the list, and then after they have viewed a movie, mark it as watched.
+# CINEWATCH
+A CRUD application used to manipulate a database containing movie-related information. 
 
 # Features
-Relies on the OMDb api.
+Supports Create, Read, Update and Delete operations, allowing users to add/update/delete movies, theatres, actors, genres, awards, and their relationships. Contains a search/filter feature for the Movies entity, allowing users to search movies by name, genre, awards won and more.
 
-# Limitations
-The free api key has a limit of 1000 requests per day.
+# Requirements
+None. Live version of application can be found here: 
+
+# Known Bugs
+None. If you experience issues with seeing or manipulating the data it is likely because of limitations with the free database being used (i.e. max number of concurrent connections reached).
+
+# Credit
+Co-developed with Rachel Orrell (https://github.com/rorrell), who created the pages for actors and genres and formatted the file structure of repo.
 
 # License
 My code cannot be used for commercial use without permission.

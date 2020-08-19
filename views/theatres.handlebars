@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <form id="addTheatreForm">
+                <h1 class="form-legend">Add new theatre</h1>
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control" id="theatreName" placeholder="CINEWATCH 14" required>
+                </div>
+                <div class="form-group">
+                    <label>City</label>
+                    <input type="text" class="form-control" id="theatreCity" placeholder="San Francisco" required>
+                </div>
+                <div class="form-group">
+                    <label>State</label>
+                    <input type="text" class="form-control" id="theatreState" placeholder="CA" maxlength="2" required>
+                </div>
+                <button type="submit" class="btn btn-primary form-submit" id="theatreSubmit">Submit</button>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h1 class="table-legend">Theatres</h1>
+            <input type="text" id="searchTheatres" class="form-control" placeholder="Search">
+            <br>
+            <table class="table table-light table-striped" id="theatreTable">
+                <thead class="thead-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>&nbsp;</th>
+                </tr>
+                </thead>
+                <tbody id="theatreTableBody">
+                {{#each theatres}}
+                    <tr id="row{{theatreID}}">
+                        <td>{{name}}</td>
+                        <td>{{city}}</td>
+                        <td>{{state}}</td>
+                        <td>
+                            <div class="d-flex flex-row-reverse">
+                                <button class="btn btn-secondary" onclick="deleteTheatre({{theatreID}})">Delete</button>
+                                <button class="btn btn-primary mx-2" onclick="updateTheatre({{theatreID}})">Update</button>
+                            </div>
+                        </td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src='/js/theatres.js'></script>

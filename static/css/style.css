@@ -1,0 +1,100 @@
+/* Global */
+body {
+    background-color: #77a8c7;
+}
+
+table, th, td {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1rem;
+}
+
+caption {
+    color: black;
+    caption-side: top;
+    text-align: center;
+}
+
+.col {
+    padding-top: 50px;
+}
+
+.col-xl-6 {
+    padding-top: 50px;
+}
+
+.form-legend, .table-legend {
+    font-family: "Bangers", cursive;
+    text-align: center;
+    color: black;
+}
+
+.form-group {
+    text-align: center;
+}
+
+.form-control {
+    display: block;
+    margin: auto;
+    width: 300px;
+}
+
+.form-submit {
+    display: block;
+    margin: auto;
+}
+
+input {
+    text-align: center;
+}
+
+input:focus::placeholder {
+    color: transparent;
+}
+
+/* navbar */
+.navbar {
+    background-color: #457b9d !important;
+    width: 100%;
+}
+
+.nav-item {
+    padding-left: 5px;
+}
+
+.nav-link {
+    color: black !important;
+    font-family: "Bangers", cursive;
+    font-size: 20px;
+}
+
+/* home */
+#intro-tag {
+    padding-top: 80px;
+    font-family: "Bangers", cursive;
+    font-size: 60px;
+    text-align: center;
+    color: black;
+}
+
+#intro-description {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    margin: auto;
+    color: black;
+    max-width: 850px;
+    min-width: 300px;
+}
+
+#citation {
+    font-size: 12px;
+}
+
+/* theatres */
+
+#input-state {
+    width: 50px;
+}
