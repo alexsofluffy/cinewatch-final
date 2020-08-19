@@ -5,7 +5,7 @@ A CRUD application used to manipulate a database containing movie-related inform
 Supports Create, Read, Update and Delete operations, allowing users to add/update/delete movies, theatres, actors, genres, awards, and their relationships. Contains a search/filter feature for the Movies entity, allowing users to search movies by name, genre, awards won and more.
 
 # Requirements
-None. Live version of application can be found here: 
+None. Live version of application can be found here: https://cine-watch.herokuapp.com/
 
 # Known Bugs
 None. If you experience issues with seeing or manipulating the data it is likely because of limitations with the free database being used (i.e. max number of concurrent connections reached).
