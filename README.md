@@ -2,7 +2,8 @@
 A CRUD application used to manipulate a database containing movie-related information. Frontend was implemented with JavaScript, HTML, CSS and Bootstrap, and backend with Node.js and JawsDB.
 
 # Features
-Supports Create, Read, Update and Delete operations, allowing users to add/update/delete movies, theatres, actors, genres, awards, and their relationships. Contains a search/filter feature for the Movies entity, allowing users to search movies by name, genre, awards won and more.
+- Supports Create, Read, Update and Delete operations, allowing users to add/update/delete movies, theatres, actors, genres, awards, and their relationships.
+- Contains a search/filter feature for movies, allowing users to search movies by name, genre, awards won and more.
 
 # Requirements
 None. Live version of application can be found here: https://cine-watch.herokuapp.com/
